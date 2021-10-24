@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import Meta from "../../../components/Meta";
 
 const article = ({ article }) => {
-  //   const router = useRouter();
-  //   const { id } = router.query;
+  // const router = useRouter();
+  // const { id } = router.query;
   return (
     <>
       <Meta title={article.title} description={article.excerpt} />
@@ -17,8 +17,10 @@ const article = ({ article }) => {
   );
 };
 
-export const getServerSideProps = async () => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+export const getServerSideProps = async (context) => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
+  );
 
   const article = await res.json();
   return {
