@@ -1,0 +1,7 @@
+.button {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: solid 0.2rem #000;
+  border-radius: 2rem;
+}

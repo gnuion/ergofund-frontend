@@ -10,12 +10,12 @@ const Layout = ({ children }) => {
     <>
       <Meta />
       <Nav />
-      <div className={styles.container}>
+      {/* <div className={styles.container}>
         <main className={styles.main}>
           <Header />
           {children}
         </main>
-      </div>
+      </div> */}
     </>
   );
 };
