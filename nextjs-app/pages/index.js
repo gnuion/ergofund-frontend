@@ -1,9 +1,11 @@
 import { server } from "../config/";
 import ArticleList from "../components/ArticleList";
+import Hero from "../components/Hero";
 
 export default function Home({ articles }) {
   return (
     <div>
+      <Hero />
       <ArticleList articles={articles} />
     </div>
   );

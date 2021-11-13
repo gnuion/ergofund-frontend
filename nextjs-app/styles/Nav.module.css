@@ -11,14 +11,24 @@
 }
 
 .nav ul {
+  flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   list-style: none;
 }
 
+.nav ul:last-child {
+  justify-content: flex-end;
+}
+
+.logo {
+  width: 180px;
+  height: 55px;
+}
+
 .nav ul li a {
-  margin: 5px 15px;
+  margin: 0px 15px;
 }
 
 .nav input {
@@ -30,4 +40,12 @@
 .nav textarea:focus,
 .nav select:focus {
   outline: none;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: solid 0.2rem #000;
+  border-radius: 2rem;
 }

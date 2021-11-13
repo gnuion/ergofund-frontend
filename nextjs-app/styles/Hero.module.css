@@ -1,0 +1,35 @@
+.overlay {
+  width: 300px;
+}
+.title {
+  font-size: 2rem;
+}
+.description {
+  line-height: 1;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.seperator {
+  margin: 0.5rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: solid 0.2rem rgb(7, 92, 42);
+  background-color: rgb(7, 92, 42);
+  color: #fff;
+  border-radius: 2rem;
+}

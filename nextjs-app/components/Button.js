@@ -1,10 +1,9 @@
 import Link from "next/link";
-import buttonStyles from "../styles/Button.module.css";
 
-const Button = () => {
+const Button = (props) => {
   return (
     <Link href="#">
-      <a class={buttonStyles.button}>Sign in</a>
+      <a className={props.className}>{props.label}</a>
     </Link>
   );
 };
