@@ -1,6 +1,6 @@
 import {Box, Flex, Button, Stack, useColorMode} from '@chakra-ui/react'
 import {MoonIcon, SunIcon} from '@chakra-ui/icons'
-import {Logo} from './Logo'
+import {Logo} from './Icons'
 
 export default function Nav() {
   const {colorMode, toggleColorMode} = useColorMode()
