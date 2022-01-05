@@ -1,6 +1,6 @@
 import {Props} from 'framer-motion/types/types'
 import {GridItem} from '@chakra-ui/layout'
-import {HeartIcon} from '@modules/Icons'
+import {HeartIcon} from '../icons'
 import {TimeIcon} from '@chakra-ui/icons'
 
 import {
@@ -16,14 +16,23 @@ import {
   Spacer,
   Icon,
   Flex,
-  VStack,
   Heading,
+  VStack,
 } from '@chakra-ui/react'
 
-function ProjectItem(props: Props) {
-  const {colorMode, toggleColorMode} = useColorMode()
+// id: string
+// title: string
+// location: string
+// date: string
+// image: string
 
-  const {title, image, date, location, id} = props
+import Link from 'next/link'
+
+function ProjectItem(props: Props) {
+  const {colorMode} = useColorMode()
+
+  const {description, title, image, date, location, id, status, category} =
+    props
 
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
@@ -33,11 +42,12 @@ function ProjectItem(props: Props) {
 
   const formattedAddress = location.replace(', ', '\n')
 
-  const exploreLink = `/events/${id}`
+  const exploreLink = `/projects/${id}`
 
   return (
-    <GridItem>
+    <Link href={exploreLink}>
       <Box
+        as={GridItem}
         rounded="20px"
         overflow="hidden"
         bg={colorMode === 'dark' ? 'gray.700' : 'gray.200'}
@@ -49,35 +59,40 @@ function ProjectItem(props: Props) {
 
         <Flex p={5} height="400px" flexDirection="column">
           <HStack justifyContent="space-between">
-            <Badge variant="solid" colorScheme="yellow" rounded="full" px={2}>
-              Funding
+            <Badge
+              variant="solid"
+              colorScheme="yellow"
+              rounded="full"
+              px={2}
+              fontSize="small"
+            >
+              {status}
             </Badge>
             <Icon as={HeartIcon} color="red.500" />
           </HStack>
 
-          <Stack>
+          <VStack alignItems="flex-start">
             <Heading as="h4" size="md" my={2}>
-              A Computer Science Portal for Geeks
+              {title}
             </Heading>
-            <Text fontWeight="light">
-              A platform for students to study CSE concepts. Lorem ipsum dolor
-              sit amet consectetur, adipisicing elit. Facilis, veritatis dolorum
-              eligendi aliquam eius animi recusandae itaque amet! Quae totam qui
-              fuga nihil aut ea necessitatibus soluta quo impedit in?
-            </Text>
-          </Stack>
+            <Text fontWeight="light">{description}</Text>
+          </VStack>
+
           <Spacer />
-          <Stack>
-            <HStack justifyContent="space-between">
+
+          <VStack alignItems="space-between">
+            <div>
               <Badge
                 variant="outline"
                 colorScheme="yellow"
                 rounded="full"
                 px={2}
+                fontSize="small"
               >
-                Environment
+                {category}
               </Badge>
-            </HStack>
+            </div>
+
             <HStack justifyContent="space-between">
               <Text fontWeight="light">850 SigUSD raised</Text>
               <Text fontWeight="light">86%</Text>
@@ -97,10 +112,10 @@ function ProjectItem(props: Props) {
               <Text>18 days left</Text>
               <Spacer />
             </HStack>
-          </Stack>
+          </VStack>
         </Flex>
       </Box>
-    </GridItem>
+    </Link>
   )
 }
 

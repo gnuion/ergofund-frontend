@@ -1,7 +1,11 @@
+import {getAllProjects} from '../../../dummy-data'
+import ProjectList from '../../components/projects/project-list'
+
 function AllProjectsPage() {
+  const projects = getAllProjects()
   return (
     <div>
-      <h1>All Events</h1>
+      <ProjectList projects={projects} />
     </div>
   )
 }

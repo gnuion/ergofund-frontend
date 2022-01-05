@@ -1,6 +1,6 @@
 import type {NextPage} from 'next'
 import {getFeaturedProjects} from '../../dummy-data'
-import ProjectList from '../modules/projects/ProjectList'
+import ProjectList from '../components/projects/project-list'
 
 const Home: NextPage = () => {
   const featuredProjects = getFeaturedProjects()
