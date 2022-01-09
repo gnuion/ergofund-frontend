@@ -1,11 +1,12 @@
+import {Heading} from '@chakra-ui/react'
 import {Props} from 'framer-motion/types/types'
 import React from 'react'
 
 const ProjectSummary = (props: Props) => {
   return (
-    <div>
-      <h1>{props.title}</h1>
-    </div>
+    <Heading as="h1" textAlign="center">
+      {props.title}
+    </Heading>
   )
 }
 

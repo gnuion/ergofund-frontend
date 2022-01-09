@@ -2,10 +2,10 @@ import {useRouter} from 'next/router'
 import {getEventById} from '../../../dummy-data'
 import ProjectSummary from '@components/project-detail/project-summary'
 import ProjectContent from '@components/project-detail/project-content'
-import {Box} from '@chakra-ui/react'
 
-import SlideShow from '@components/slideshow/slideshow'
-import {HStack, Stack} from '@chakra-ui/react'
+import {HStack, Stack, VStack} from '@chakra-ui/react'
+import ProjectSlideshow from '@modules/ProjectSlideshow/ProjectSlideshow'
+
 function ProjectDetailPage() {
   const router = useRouter()
 
@@ -17,16 +17,15 @@ function ProjectDetailPage() {
   }
   return (
     <>
-      <HStack height="300px">
-        <SlideShow />
-
-        <Stack width="50%" height="100%">
+      <Stack alignItems="flex-start" direction={['column', 'column', 'row']}>
+        <ProjectSlideshow project={project} />
+        <VStack alignItems="flex-start" px={4}>
           <ProjectSummary title={project.title} />
           <ProjectContent>
             <p>{project.description}</p>
           </ProjectContent>
-        </Stack>
-      </HStack>
+        </VStack>
+      </Stack>
     </>
   )
 }
